@@ -23,3 +23,4 @@ cv = model_selection.KFold(n_splits=5, random_state=241, shuffle=True)
 clf = svm.SVC(kernel='linear', random_state=241)
 gs = model_selection.GridSearchCV(clf, grid, scoring='accuracy', cv=cv)
 gs.fit(X, y)
+
