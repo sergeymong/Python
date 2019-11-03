@@ -128,7 +128,7 @@ def print_grid(squares=1, height=1, **kwargs):
         )
 
     if bottom_squares > 0:
-        ns = Square(height=height)
+        ns = Square(height=height, **kwargs)
         right = ns.b_square()
 
         for _ in range(bottom_squares-1):
@@ -142,7 +142,9 @@ def print_grid(squares=1, height=1, **kwargs):
     return None
 
 
-for i in range(70):
+for i in range(17):
     print(i)
-    print_grid(i, height=2, angle='*')
+    print_grid(i, height=2, angle='.')
     print()
+
+Square().b_square()
