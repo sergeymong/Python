@@ -96,10 +96,10 @@ def rbind_square(square_1, square_2):
     return figure
 
 
-def print_grid(squares=1, height=1):
+def print_grid(squares=1, height=1, **kwargs):
     from math import sqrt
 
-    s = Square(height=height)
+    s = Square(height=height, **kwargs)
     figure = ''
     full_squares = int(sqrt(squares))
     residual_squares = squares - full_squares ** 2
@@ -144,5 +144,5 @@ def print_grid(squares=1, height=1):
 
 for i in range(70):
     print(i)
-    print_grid(i, height=1)
+    print_grid(i, height=2, angle='*')
     print()
