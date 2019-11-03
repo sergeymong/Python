@@ -129,14 +129,20 @@ def print_grid(squares=1, height=1):
 
     if bottom_squares > 0:
         ns = Square(height=height)
+        right = ns.b_square()
+
+        for _ in range(bottom_squares-1):
+            right = rbind_square(right, s.br_square())
+
         figure = cbind_square(
             figure,
-            rbind_square(ns.b_square(), s.br_square() * (bottom_squares - 1))
+            right
         )
     print(figure)
     return None
 
 
-for i in range(10):
-    print_grid(i, height=2)
+for i in range(70):
+    print(i)
+    print_grid(i, height=1)
     print()
