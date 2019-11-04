@@ -29,17 +29,19 @@ def calc_words(words_list):
     return words
 
 
-def print_top_20(words_list):
+def print_top_20(words_list, min_length=4):
     words = calc_words(words_list)
     words = sorted(words.items(), key=lambda kv: kv[1], reverse=True)
     counter = 0
     print('Top 20 words:')
-    for key, value in words[0:20]:
-        counter += 1
-        print('{}: {} {}'.format(counter, key, value))
+    for key, value in words:
+        if counter == 20:
+            break
+        if len(key) >= min_length:
+            counter += 1
+            print('{}: {} {}'.format(counter, key, value))
 
 
-d = read_to_list('60611-0.txt')
+d = read_to_list('2701-0.txt')
 print('Overall words in book: {}, unique words: {}'.format(len(d), uniq_words(d)))
 print_top_20(d)
-
